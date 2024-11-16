@@ -115,7 +115,13 @@ def valid_date(date: str) -> bool:
 
 def day_iter(start_date: str, num: int) -> str:
     "iterates from start date by num to return end date in DD/MM/YYYY"
-    ...
+    current_date = start_date
+    for _ in range(abs(num)):
+        if num > 0:
+            current_date = after(current_date)
+        else:
+            current_date = before(current_date)
+    return current_date
 
 if __name__ == "__main__":
     # check length of arguments
