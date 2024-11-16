@@ -92,7 +92,17 @@ def after(date: str) -> str:
 
 def before(date: str) -> str:
     "Returns previous day's date as DD/MM/YYYY"
-    ...
+    day, mon, year = (int(x) for x in date.split('/'))
+    day -= 1
+
+    if day < 1:
+        mon -= 1
+        if mon < 1:
+            mon = 12
+            year -= 1
+        day = mon_max(mon, year)
+
+    return "%02d/%02d/%d" % (day, mon, year)
 
 def usage():
     "Print a usage message to the user"
@@ -101,7 +111,7 @@ def usage():
 
 def valid_date(date: str) -> bool:
     "check validity of date"
-    ...
+    
 
 def day_iter(start_date: str, num: int) -> str:
     "iterates from start date by num to return end date in DD/MM/YYYY"
