@@ -11,9 +11,9 @@ with anyone or anything except for submission for grading. I understand
 that the Academic Honesty Policy will be enforced and
 violators will be reported and appropriate action will be taken.
 
-Author: <Student Name>
-Semester: <Fall/Winter/Summer> <Year>
-Description: <fill this in>
+Author: Rafien Mohammed
+Semester: Fall 2024
+Description: OPS445NCC
 '''
 
 import sys
@@ -29,8 +29,16 @@ def day_of_week(date: str) -> str:
     return days[num]
 
 def leap_year(year: int) -> bool:
-    "return true if the year is a leap year"
-    ...
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
 
 def mon_max(month:int, year:int) -> int:
     "returns the maximum day for a given month. Includes leap year check"
