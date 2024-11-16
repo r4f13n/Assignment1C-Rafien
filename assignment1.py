@@ -41,8 +41,15 @@ def leap_year(year: int) -> bool:
         return False
 
 def mon_max(month:int, year:int) -> int:
-    "returns the maximum day for a given month. Includes leap year check"
-    ...
+    if month == 2:
+        if leap_year(year):
+            return 29
+        else:
+            return 28
+    elif month in [4, 6, 9, 11]:
+        return 30
+    else:
+        return 31
 
 def after(date: str) -> str: 
     '''
