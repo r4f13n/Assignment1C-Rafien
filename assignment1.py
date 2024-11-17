@@ -14,6 +14,7 @@ violators will be reported and appropriate action will be taken.
 Author: Rafien Mohammed
 Semester: Fall 2024
 Description: OPS445NCC
+Student ID: 101775229
 '''
 
 import sys
@@ -29,6 +30,7 @@ def day_of_week(date: str) -> str:
     return days[num]
 
 def leap_year(year: int) -> bool:
+    "Returns True if the year is a leap year else it returns False"
     if year % 4 == 0:
         if year % 100 == 0:
             if year % 400 == 0:
@@ -41,6 +43,7 @@ def leap_year(year: int) -> bool:
         return False
 
 def mon_max(month:int, year:int) -> int:
+    "Returns the number of days in a given month and year"
     if month == 2:
         if leap_year(year):
             return 29
