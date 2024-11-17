@@ -111,7 +111,11 @@ def usage():
 
 def valid_date(date: str) -> bool:
     "check validity of date"
-    
+    try:
+        day, month, year = (int(x) for x in date.split('/'))
+        return 1 <= day <= mon_max(month, year) and 1 <= month <= 12 and year > 0
+    except ValueError:
+        return False    
 
 def day_iter(start_date: str, num: int) -> str:
     "iterates from start date by num to return end date in DD/MM/YYYY"
