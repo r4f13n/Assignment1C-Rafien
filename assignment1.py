@@ -133,4 +133,13 @@ if __name__ == "__main__":
     # check that second arg is a valid number (+/-)
     # call day_iter function to get end date, save to x
     # print(f'The end date is {day_of_week(x)}, {x}.')
+    if len(sys.argv) != 3:
+        usage()
+    date_input = sys.argv[1]
+    num_days = sys.argv[2]
+    if not valid_date(date_input) or not num_days.lstrip('-').isdigit():
+        usage()
+    num_days = int(num_days)
+    end_date = day_iter(date_input, num_days)
+    print("The end date is " + day_of_week(end_date) + ", " + end_date + ".")
     pass
